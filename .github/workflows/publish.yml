@@ -1,7 +1,7 @@
 name: publish
 on:
-  repository_dispatch:
-    types: [trigger-ocelot-build-success]
+  #repository_dispatch:
+  #  types: [trigger-ocelot-build-success]
   push:
     branches:
       - master
