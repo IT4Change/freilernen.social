@@ -1,2 +1,12 @@
 {
+  "freilernensocialRebranding": {
+    "footer": {
+      "faq": {
+        "headline": "Hilfe"
+      }
+    },
+    "header": {
+      "asp": "ASP"
+    }
+  }
 }
