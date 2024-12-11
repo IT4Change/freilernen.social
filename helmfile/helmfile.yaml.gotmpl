@@ -3,6 +3,9 @@ environments:
   default:
     values:
       - ./environments/default.yaml.gotmpl
+  production:
+    values:
+      - ./environments/production.yaml.gotmpl
 ---
 repositories:
   - name: ocelot-social
@@ -15,12 +18,12 @@ releases:
     values:
     - ./values/ocelot.yaml.gotmpl
     secrets:
-      - ./secrets/ocelot.yaml
+    - ./secrets/ocelot.yaml
 
   - name: ocelot-neo4j
     namespace: {{ .StateValues.namespace }}
-    chart: ocelot-social/ocelot-social
+    chart: ocelot-social/ocelot-neo4j
     values:
     - ./values/ocelot.yaml.gotmpl
     secrets:
-      - ./secrets/ocelot.yaml
+    - ./secrets/ocelot.yaml
