@@ -1,7 +1,22 @@
 {{ $image_tag := env "IMAGE_TAG" | default  (exec "../scripts/branded_image_tag.sh" (list) | trim) }}
 
-domain: freilernen-social-staging.ocelot-social.it4c.org
-redirect_domains: []
-namespace: freilernen-social-ocelot
-image_tag: {{ $image_tag }}
-github_repository: IT4Change/freilernen.social
+deploy:
+    GITHUB_REPOSITORY: it4change/freilernen.social
+    IMAGE_TAG: {{ $image_tag }}
+    DOMAIN: freilernen-social-staging.ocelot-social.it4c.org
+    REDIRECT_DOMAINS: []
+    NAMESPACE: freilernen-social-ocelot
+    RELEASE_NAME_OCELOT: freilernen-social
+    NEO4J_STORAGE: "5Gi"
+
+ocelot:
+    options:
+        PRODUCTION_DB_CLEAN_ALLOW: "false"
+        PUBLIC_REGISTRATION: "false"
+        INVITE_REGISTRATION: "false"
+        CATEGORIES_ACTIVE: "false"
+        MAX_PINNED_POSTS: "1"
+        BADGES_ENABLED: "false"
+        NETWORK_NAME: "freilernen.social"
+        ASK_FOR_REAL_NAME: "false"
+        REQUIRE_LOCATION: "false"
