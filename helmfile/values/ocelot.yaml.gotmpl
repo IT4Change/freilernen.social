@@ -53,3 +53,13 @@ neo4j:
       memory: "2Gi"
     limits:
       memory: "4Gi"
+
+# Credentials for pulling private images, taken from the sops-encrypted `ghcr` key in
+# `environments/*.secrets.yaml`. While that key is absent — the normal case, as long as every image
+# the instance pulls is public — this renders nothing and no pull Secret is created.
+{{- $pullCredentials := index .StateValues "ghcr" | default list }}
+{{- if $pullCredentials }}
+imagePullCredentials:
+  registries:
+{{ $pullCredentials | toYaml | indent 4 }}
+{{- end }}

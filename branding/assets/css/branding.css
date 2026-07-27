@@ -1,0 +1,13 @@
+/*
+ * freilernen.social custom style overrides — ported from the former build-time
+ * assets/styles/imports/_branding.scss.
+ *
+ * WHY THIS FILE EXISTS: the old mechanism copied the brand folder over webapp/ and compiled that SCSS
+ * into the nuxt bundle. The bundle is BRAND-AGNOSTIC since the runtime branding mechanism landed, so
+ * the SCSS silently stopped applying. Only files listed in `branding.assets.css` are injected at
+ * runtime (plugins/branding-head.js), which is what this file is.
+ */
+
+.ds-logo-mobile {
+  max-height: 36px;
+}
